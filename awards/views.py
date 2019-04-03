@@ -81,12 +81,11 @@ def send(request):
         if form.is_valid():
             image = form.save(commit = False)
             image.user_key = current_user
-            image.likes +=0
             image.save() 
 
-            return redirect('timeline')
+            return redirect('index')
     else:
         form = ImageForm() 
-    return render(request, 'all-insta/send.html',{"form" : form}) 
+    return render(request, 'send.html',{"form" : form}) 
 
     # Create your views here.
