@@ -17,7 +17,7 @@ class Pic(models.Model):
      
 
 
-    def __str__(self):
+    def __str__(self): 
     	return self.pic_link
 
     def delete_pic(self):
