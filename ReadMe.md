@@ -1,4 +1,4 @@
-# Instagram Clone
+# Awards
 
 Awards is an application that lets you display your projects for others, view and rate projects.
 
