@@ -12,11 +12,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
+<div class="container" style="margin: 50px"> 
     {% for pic in pic_posts%}
-    <div class="container" style="margin: 50px">
+    <!-- <div class="container" style="margin: 50px"> -->
     <div class="col-md-4 col-sm-4">    
-    <img src="{{pic.pic.url}}" alt=""  style="width:514px; ">
+    <img src="{{pic.pic.url}}" alt="{{pic.pic_link}}">
     
     
       
@@ -24,9 +24,9 @@
      <br>
     <div> {{pic.pub_date | timesince}} </div>
     </div> 
-    </div> 
+    
 {%endfor%}
-
+</div> 
 </body>
 </html>
 
