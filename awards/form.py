@@ -21,4 +21,4 @@ class ImageForm(forms.ModelForm):
 	class Meta:
 		model = Pic
 		
-		exclude = ['user','pic_caption','pub_date']
+		exclude = ['user','pub_date']
