@@ -14,7 +14,7 @@ class Pic(models.Model):
     pic_link = models.CharField(max_length = 30,null = True)
     pic_caption = models.TextField(null = True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
-    
+     
 
 
     def __str__(self):
