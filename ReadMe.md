@@ -6,10 +6,13 @@ Awards is an application that lets you display your projects for others, view an
 As a user of the application i should be able to:
 
 Sign in to the application to start using.
-Upload my pictures to the application.
-See my profile with all my pictures.
-Follow other users and see their pictures on my timeline.
-Like a picture and leave a comment on it.
+Upload my projects to the application.
+See my profile with all my projects.
+View posted projects and their details
+Rate and review other users projects
+Search for projects 
+View projects overall score
+
 
 ### Technologies Used
 Python version 3.6.7
