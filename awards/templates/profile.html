@@ -11,6 +11,7 @@
 <div class="row">
 <div class="col-md-12">
     {%for profile in profile%}
+    {%if profile%}
 <img src={{profile.profile_pic.url}} style="width: 300px; height: 300px; border-radius: 50%; margin-top: 100px;margin-left: 100px ">
 <div class="well" style="float: right; margin-top: 170px; margin-right: 300px">
 <div>
@@ -21,33 +22,12 @@
 </div>
              
 <hr>
-<div class="profile">
-<div><h4 style="float: left; margin-left: -70px">{{image_id.followers}} followers : <strong>1</h4></stong></h4></div>
-<div><h4 style="float: right;">{{image_id.following }} following : <strong>0</h4></stong></h4></div>
-<button style="margin-left: 130px; width: 70px; margin-top: 10px">follow</button>
-</div>
+
 
 
 <ul>
-</div>
-
-<img src="{{profile.profile.url}}" class="img-responsive" alt="">
-</ul>
-<h3>{{image_id.username}}{{image_id.image_caption}}</h3>
-
+{%endif%}
 {%endfor%}
-<div class="col-md-6">
-<h1>{{image_id.username}}</h1>
-<a href="{{image_id.url}}" class="profile-link">{{image_id.url}}</a></div>
-</div>
-<div class="profile-images row">
 
- 
-
-
-</div>
-</div>
-
-</body>
 {% endblock %}  
  

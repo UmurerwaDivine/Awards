@@ -18,17 +18,17 @@ def index(request):
 
     #   print(pic_posts)
       return render(request, 'index.html', {"title":title,"pic_posts":pic_posts})
-# def search_results(request):
-#     if 'pic' in request.GET and request.GET["pic"]:
-#         search_term = request.GET.get("pic")
-#         searched_profiles = Profile.search_profile(search_term)
-#         message = f"{search_term}"
+def search_results(request):
+    if 'pic' in request.GET and request.GET["pic"]:
+        search_term = request.GET.get("pic")
+        searched_profiles = Profile.search_profile(search_term)
+        message = f"{search_term}"
 
-#         return render(request, 'search_pic.html',{"message":message,"pics": searched_profiles})
+        return render(request, 'search_pic.html',{"message":message,"pics": searched_profiles})
 
-    # else:
-    #     message = "You haven't searched for any term"
-    #     return render(request, 'search_pic.html',{"message":message})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search_pic.html',{"message":message})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
@@ -67,26 +67,26 @@ def upload_profile(request):
 
 
     return render(request,'upload_profile.html',{"title":title,"current_user":current_user,"form":form})
-# @login_required(login_url='/accounts/login/')
-# def send(request):
-    # '''
-    # View function that displays a forms that allows users to upload images
-    # '''
-    # current_user = request.user
+@login_required(login_url='/accounts/login/')
+def send(request):
+    '''
+    View function that displays a forms that allows users to upload images
+    '''
+    current_user = request.user
 
-    # if request.method == 'POST':
+    if request.method == 'POST':
 
-    #     form = ImageForm(request.POST ,request.FILES)
+        form = ImageForm(request.POST ,request.FILES)
 
-    #     if form.is_valid():
-    #         image = form.save(commit = False)
-    #         image.user_key = current_user
-    #         image.likes +=0
-    #         image.save() 
+        if form.is_valid():
+            image = form.save(commit = False)
+            image.user_key = current_user
+            image.likes +=0
+            image.save() 
 
-    #         return redirect('timeline')
-    # else:
-    #     form = ImageForm() 
-    # return render(request, 'all-insta/send.html',{"form" : form}) 
+            return redirect('timeline')
+    else:
+        form = ImageForm() 
+    return render(request, 'all-insta/send.html',{"form" : form}) 
 
     # Create your views here.
