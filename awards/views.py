@@ -7,7 +7,9 @@ from . form import ProfileUploadForm,ProfileForm,ImageForm
 from django.http  import HttpResponse
 from . models import Pic,Profile
 from django.conf import settings
-
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import MerchSerializer
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
