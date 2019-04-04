@@ -70,6 +70,9 @@ class Profile(models.Model):
 	def search_profile(cls,search_term):
 		got_profiles = cls.objects.filter(first_name__icontains = search_term)
 		return got_profiles
+class NewsLetterRecipients(models.Model):
+    name = models.CharField(max_length = 30)
+    email = models.EmailField()    
 
 
 

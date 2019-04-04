@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from . form import ProfileUploadForm,ProfileForm,ImageForm,awardsForm
+from . form import ProfileUploadForm,ProfileForm,ImageForm
 from django.http  import HttpResponse
 from . models import Pic,Profile
 from django.conf import settings
@@ -14,20 +14,10 @@ from django.conf import settings
 def index(request):
       title = 'Awards'
       pic_posts = Pic.objects.all()
-      form = awardsForm()
       # comments = Comment.objects.all()
 
     #   print(pic_posts)
-def awards(request):
-    name = request.POST.get('your_name')
-    email = request.POST.get('email')
-
-    recipient = NewsLetterRecipients(name=name, email=email)
-    recipient.save()
-    send_welcome_email(name, email)
-    data = {'success': 'You have been successfully added to mailing list'}
-    return JsonResponse(data)
-    return render(request, 'index.html', {"title":title,"pic_posts":pic_posts})
+      return render(request, 'index.html', {"title":title,"pic_posts":pic_posts})
 def search_results(request):
     if 'pic' in request.GET and request.GET["pic"]:
         search_term = request.GET.get("pic")
