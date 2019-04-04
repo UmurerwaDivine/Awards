@@ -68,8 +68,8 @@ class Profile(models.Model):
 		self.save()
 
 	@classmethod
-	def search_profile(cls,search_term):
-		got_profiles = cls.objects.filter(first_name__icontains = search_term)
+	def search_pic(cls,search_term):
+		got_profiles = cls.objects.filter(pic_name__icontains = search_term)
 		return got_profiles
 
 

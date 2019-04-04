@@ -12,7 +12,7 @@ from rest_framework.views import APIView
 from .serializer import MerchSerializer
 
 # Create your views here.
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def index(request):
       title = 'Awards'
       pic_posts = Pic.objects.all()
@@ -21,9 +21,9 @@ def index(request):
     #   print(pic_posts)
       return render(request, 'index.html', {"title":title,"pic_posts":pic_posts})
 def search_results(request):
-    if 'pic' in request.GET and request.GET["pic"]:
-        search_term = request.GET.get("pic")
-        searched_profiles = Profile.search_profile(search_term)
+    if 'pic_name' in request.GET and request.GET["pic_name"]:
+        search_term = request.GET.get("pic_name")
+        searched_profiles = Pic.search_pic(search_term)
         message = f"{search_term}"
 
         return render(request, 'search_pic.html',{"message":message,"pics": searched_profiles})
