@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     'bootstrap3',
     # 'awards',
+    'rest_framework',
     'awards.apps.AwardsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
