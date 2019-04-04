@@ -89,5 +89,9 @@ def send(request):
     else:
         form = ImageForm() 
     return render(request, 'send.html',{"form" : form}) 
-
+class MerchList(APIView):
+    def get(self, request, format=None):
+        all_merch = Pic.objects.all()
+        serializers = MerchSerializer(all_merch, many=True)
+        return Response(serializers.data)
     # Create your views here.

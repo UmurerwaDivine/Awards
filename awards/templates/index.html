@@ -21,7 +21,8 @@
 <div class="container">    
     {% for pic in pic_posts%} 
     <!-- <div class="container" style="margin: 50px"> -->
-    <div class="col-sm-4 col-md-4">    
+    <div class="col-sm-4 col-md-4">  
+      <h1>{{pic.pic_name}}</h1>  
     <img src="{{pic.pic.url}}" alt="{{pic.pic_link}}" >
        
      <div> <a href="{{pic.pic_link}}">{{pic.pic_link}}</a> 
