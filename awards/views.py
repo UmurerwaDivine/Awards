@@ -10,6 +10,8 @@ from django.conf import settings
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import MerchSerializer
+from rest_framework import status
+from .permissions import IsAdminOrReadOnly
 
 # Create your views here.
 # @login_required(login_url='/accounts/login/')
@@ -19,7 +21,7 @@ def index(request):
       # comments = Comment.objects.all()
 
     #   print(pic_posts)
-      return render(request, 'index.html', {"title":title,"pic_posts":pic_posts})
+      return render(request,'index.html',{"title":title,"pic_posts":pic_posts})
 def search_results(request):
     if 'pic_name' in request.GET and request.GET["pic_name"]:
         search_term = request.GET.get("pic_name")
@@ -91,7 +93,15 @@ def send(request):
     return render(request, 'send.html',{"form" : form}) 
 class MerchList(APIView):
     def get(self, request, format=None):
+        permission_classes = (IsAdminOrReadOnly,)
         all_merch = Pic.objects.all()
         serializers = MerchSerializer(all_merch, many=True)
         return Response(serializers.data)
+    def post(self, request, format=None):
+        serializers = MerchSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     # Create your views here.

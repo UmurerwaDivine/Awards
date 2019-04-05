@@ -15,21 +15,42 @@
     <div class="photo">
       <div>
           <h3>The awards of design, creativity and innovation on the internet!</h3>
-      </div>
+          <!-- <p class="rate" style="border-radius:50%;border:1px solid white">80%</p> -->
+        </div>
+        </div>
         
-    </div>
-<div class="container">    
-    {% for pic in pic_posts%} 
-    <!-- <div class="container" style="margin: 50px"> -->
+<div class="container"> 
+    {% for pics in pic_posts%}  
     <div class="col-sm-4 col-md-4">  
-      <h1>{{pic.pic_name}}</h1>  
-    <img src="{{pic.pic.url}}" alt="{{pic.pic_link}}" >
-       
-     <div> <a href="{{pic.pic_link}}">{{pic.pic_link}}</a> 
+        <h1>{{pics.pic_name}}</h1>  
+        <!-- Trigger the modal with a button -->
+        <a href=""><img src="{{pics.pic.url}}" alt="{{pics.pic_link}}" data-toggle="modal" data-target="#myModal"></a>
     </div>
-     <br>
-    <div> {{pic.pub_date | timesince}} </div>
-    </div> 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1 class="modal-title">{{pics.pic_name}}</h1>  
+              </div>
+              <div class="modal-body">
+                <p>{{pics.pic_caption}}</p>
+                <div>{{pics.pub_date | timesince}} </div>
+                <div> <a href="{{pics.pic_link}}">{{pics.pic_link}}</a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>  
+   
+    <!-- <div class="container" style="margin: 50px"> -->
+    
     
 {%endfor%}
 </div> 

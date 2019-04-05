@@ -46,8 +46,7 @@ class Pic(models.Model):
     	ordering = ['-pub_date']
 
 
-    def __str__(self):
-    	return self.pic_caption
+    
 
     def save_profile(self):
     	self.save()

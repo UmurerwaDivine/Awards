@@ -39,6 +39,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     
     'bootstrap3',
+    'rest_framework.authtoken',
     # 'awards',
     'rest_framework',
     'awards.apps.AwardsConfig',
@@ -113,6 +114,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 
 # Internationalization
